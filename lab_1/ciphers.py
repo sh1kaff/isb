@@ -35,8 +35,33 @@ def caesar(alphabet: str, message: str, shift: int = 3) -> str:
     return cipher_text
 
 
-if __name__ == "__main__":
-    text = "abcdef"
-    cipher_text = caesar(text, text, 10)
+def vigenere(alphabet: str, key: str, message: str) -> str:
+    cipher_text = ""
+    alphabet_len = len(alphabet)
 
-    print(cipher_text)
+    char_to_index = {char: idx for idx, char in enumerate(alphabet)}
+
+    msg_idx = 0
+    for msg_char in message:
+        key_char = key[msg_idx % len(key)]
+
+        if msg_char not in char_to_index:
+            cipher_text += msg_char
+            continue
+
+        msg_idx += 1
+
+        if key_char not in char_to_index: 
+            raise ValueError(f"Key contains invalid character: '{key_char}'")
+        
+        shift1 = char_to_index[key_char]
+        shift2 = char_to_index[msg_char]
+        
+        cipher_text += alphabet[(shift1 + shift2) % alphabet_len]
+    
+    return cipher_text
+
+
+
+if __name__ == "__main__":
+    print(vigenere("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЭЮЯ", "МОНАСТЫРЬ", "РАСКИНУЛОСЬМОРЕШИРОКО"))
