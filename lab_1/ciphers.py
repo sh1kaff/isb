@@ -10,26 +10,28 @@
     
     cipher_text = ""
 
+    char_to_char = {char1: char2 for char1, char2 in zip(alphabet1, alphabet2)}
+
     for char in message:
-        idx = alphabet1.find(char)
-        if idx == -1:
+        if char not in char_to_char:
             cipher_text += char
             continue
         
-        cipher_text += alphabet2[idx]
+        cipher_text += char_to_char[char]
     
     return cipher_text
 
 def caesar(alphabet: str, message: str, shift: int = 3) -> str:
     cipher_text = ""
 
+    char_to_index = {char: idx for idx, char in enumerate(alphabet)}
+
     for char in message:
-        idx = alphabet.find(char)
-        if idx == -1:
+        if char not in char_to_index:
             cipher_text += char
             continue
 
-        new_idx = (idx + shift) % len(alphabet)
+        new_idx = (char_to_index[char] + shift) % len(alphabet)
         cipher_text += alphabet[new_idx]
 
     return cipher_text
@@ -64,4 +66,6 @@ def vigenere(alphabet: str, key: str, message: str) -> str:
 
 
 if __name__ == "__main__":
-    print(vigenere("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЭЮЯ", "МОНАСТЫРЬ", "РАСКИНУЛОСЬМОРЕШИРОКО"))
+    print(substitution("abcdef", "123456", "aaff-"))
+    print(caesar("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЭЮЯ", "АБВЯ-", 1))
+    print(vigenere("АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЭЮЯ", "МОНАСТЫРЬ", "РАСКИНУЛОСЬМОРЕШИРОКО-"))
