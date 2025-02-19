@@ -4,7 +4,7 @@ import os
 
 def json_to_dict(path: str) -> dict:
     if not os.path.isfile(path):
-        raise ValueError(f"Invalid path to file: '{path}'")
+        raise FileNotFoundError(f"Invalid path to file: '{path}'")
 
     if not path.endswith(".json"):
         raise ValueError(f"The file '{path}' is not a json file")
@@ -23,6 +23,9 @@ def read_settings() -> dict:
 
 
 def write_to_file(path: str, text: str):
+    if not os.path.isfile(path):
+        raise FileNotFoundError(f"Invalid path to file: '{path}'")
+    
     with open(path, "w", encoding="utf-8-sig") as file:
         file.write(text)
 

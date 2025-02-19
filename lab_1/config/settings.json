@@ -1,13 +1,13 @@
 ﻿{
     "task1": {
         "plain_text": "user_files\\task1_plain.txt",
-        "cipher_text": "user_files\\task1_ciphere.txt",
+        "cipher_text": "user_files\\task1_cipher.txt",
         "key": "user_files\\task1_key.json"
     },
 
     "task2": {
         "plain_text": "user_files\\task2_plain.txt",
-        "cipher_text": "user_files\\task2_ciphere.txt",
+        "cipher_text": "user_files\\task2_cipher.txt",
         "key": "user_files\\task2_key.json"
     },
     

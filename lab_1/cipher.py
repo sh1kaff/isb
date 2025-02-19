@@ -44,7 +44,7 @@ def main():
     try:
         cipher()
     except Exception as e:
-        print("Error:", e.text)
+        print("Error:", e)
 
 
 if __name__ == "__main__":

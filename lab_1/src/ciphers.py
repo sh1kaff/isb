@@ -5,6 +5,11 @@
     if not message:
         return ""
 
+    if to_upper:
+        alphabet1 = alphabet1.upper()
+        alphabet2 = alphabet2.upper()
+        message = message.upper()
+
     if len(alphabet1) != len(set(alphabet1)):
         raise ValueError("The alphabet1 contains the same characters")
 
@@ -17,11 +22,6 @@
         )
 
     cipher_text = ""
-
-    if to_upper:
-        alphabet1 = alphabet1.upper()
-        alphabet2 = alphabet2.upper()
-        message = message.upper()
 
     char_to_char = {char1: char2 for char1, char2 in zip(alphabet1, alphabet2)}
 
@@ -39,14 +39,18 @@ def caesar(alphabet: str, message: str, shift: int = 3, to_upper: bool = False) 
     if not alphabet:
         raise ValueError("The alphabet is empty")
 
+    if to_upper:
+        alphabet = alphabet.upper()
+        message = message.upper()
+
+    if len(alphabet) != len(set(alphabet)):
+        raise ValueError("The alphabet contains the same characters")
+
+
     if not message:
         return ""
 
     cipher_text = ""
-
-    if to_upper:
-        alphabet = alphabet.upper()
-        message = message.upper()
 
     char_to_index = {char: idx for idx, char in enumerate(alphabet)}
 
@@ -68,16 +72,19 @@ def vigenere(alphabet: str, key: str, message: str, to_upper: bool = False) -> s
     if not alphabet:
         raise ValueError("The alphabet is empty")
 
+    if to_upper:
+        alphabet = alphabet.upper()
+        key = key.upper()
+        message = message.upper()
+
+    if len(alphabet) != len(set(alphabet)):
+        raise ValueError("The alphabet contains the same characters")
+
     if not message:
         return ""
 
     cipher_text = ""
     alphabet_len = len(alphabet)
-
-    if to_upper:
-        alphabet = alphabet.upper()
-        key = key.upper()
-        message = message.upper()
 
     char_to_index = {char: idx for idx, char in enumerate(alphabet)}
 
