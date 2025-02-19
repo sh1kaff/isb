@@ -1,4 +1,4 @@
-﻿def substitution(alphabet1: str, alphabet2: str, message: str) -> str:
+﻿def substitution(alphabet1: str, alphabet2: str, message: str, to_upper: bool = False) -> str:
     if len(alphabet1) != len(set(alphabet1)):
         raise ValueError("Alphabet1 contains the same characters")
     
@@ -12,6 +12,11 @@
 
     char_to_char = {char1: char2 for char1, char2 in zip(alphabet1, alphabet2)}
 
+    if to_upper:
+        alphabet1 = alphabet1.upper()
+        alphabet2 = alphabet2.upper()
+        message = message.upper()
+
     for char in message:
         if char not in char_to_char:
             cipher_text += char
@@ -21,10 +26,14 @@
     
     return cipher_text
 
-def caesar(alphabet: str, message: str, shift: int = 3) -> str:
+def caesar(alphabet: str, message: str, shift: int = 3, to_upper: bool = False) -> str:
     cipher_text = ""
 
     char_to_index = {char: idx for idx, char in enumerate(alphabet)}
+
+    if to_upper:
+        alphabet = alphabet.upper()
+        message = message.upper()
 
     for char in message:
         if char not in char_to_index:
@@ -37,11 +46,16 @@ def caesar(alphabet: str, message: str, shift: int = 3) -> str:
     return cipher_text
 
 
-def vigenere(alphabet: str, key: str, message: str) -> str:
+def vigenere(alphabet: str, key: str, message: str, to_upper: bool = False) -> str:
     cipher_text = ""
     alphabet_len = len(alphabet)
 
     char_to_index = {char: idx for idx, char in enumerate(alphabet)}
+
+    if to_upper:
+        alphabet = alphabet.upper()
+        key = key.upper()
+        message = message.upper()
 
     msg_idx = 0
     for msg_char in message:
