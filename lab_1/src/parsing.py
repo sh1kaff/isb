@@ -72,7 +72,7 @@ def parse_arguments():
     parser_caesar = subparsers.add_parser(
         "caesar", help="Caesar cipher", description="Encrypts the text using a Caesar cipher"
     )
-    parser_caesar.add_argument("alpha", type=str, nargs="?", help="RU, EN or alphabetical string")
+    parser_caesar.add_argument("alpha", type=str, help="RU, EN or alphabetical string")
     parser_caesar.add_argument(
         "-s", "--shift", type=int, default=3, help="A shift in Caesar's cipher (can be neg or pos)"
     )
