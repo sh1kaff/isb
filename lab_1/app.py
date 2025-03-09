@@ -31,6 +31,7 @@ def cipher_handle(args: dict) -> str:
 
     return cipher_text        
 
+# ЧБЩЪWЫЬЯ АБ12ДЕRTИЙКЛМ45ОПЪ>78УФХ
 
 @app.route("/")
 def home():
