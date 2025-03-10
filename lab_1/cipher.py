@@ -1,7 +1,8 @@
 ﻿import src.ciphers as ciphers
 
 from src.utils import write_to_file, read_settings
-from src.parsing import parse_cipher_arguments, parse_input_param, parse_alpha_param, parse_key_param
+from src.parsing import parse_cipher_arguments, parse_input_param, \
+    parse_alpha_param, parse_key_param
 from config.messages import MESSAGES
 
 
