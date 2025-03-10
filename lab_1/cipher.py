@@ -1,10 +1,13 @@
 ﻿import src.ciphers as ciphers
+
 from src.utils import write_to_file, read_settings
-from src.cipher_parsing import parse_arguments, parse_input_param, parse_alpha_param, parse_key_param
+from src.parsing import parse_cipher_arguments, parse_input_param, parse_alpha_param, parse_key_param
+from config.messages import MESSAGES
 
 
 def cipher():
-    args = parse_arguments()
+    """Function for the encryption program."""
+    args = parse_cipher_arguments()
 
     if args.auto:
         task1_settings = read_settings().get("task1", {})
@@ -18,27 +21,41 @@ def cipher():
         case "sub":
             alpha1 = parse_alpha_param(args.alpha1)
             alpha2 = parse_alpha_param(args.alpha2)
-            cipher_text = ciphers.substitution(alpha1, alpha2, plain_text, args.to_upper)
+            cipher_text = ciphers.substitution(
+                alpha1,
+                alpha2,
+                plain_text,
+                args.to_upper
+            )
         case "caesar":
             alpha = parse_alpha_param(args.alpha)
-            cipher_text = ciphers.caesar(alpha, plain_text, args.shift, args.to_upper)
+            cipher_text = ciphers.caesar(
+                alpha,
+                plain_text,
+                args.shift,
+                args.to_upper
+            )
         case "vig":
             alpha = parse_alpha_param(args.alpha)
-            if args.auto:
-                key = parse_key_param(task1_settings.get("key", ""))
-            else:
-                key = parse_key_param(args.key)
+            key = parse_key_param(task1_settings.get("key", "") if args.auto else args.key)
 
-            cipher_text = ciphers.vigenere(alpha, key, plain_text, args.to_upper)
+            cipher_text = ciphers.vigenere(
+                alpha,
+                key,
+                plain_text,
+                args.to_upper
+            )
 
-    print(f"Result cipher text:\n{cipher_text}")
+    print(MESSAGES["res_cipher"])
+    print(cipher_text)
 
     if output_file:
         write_to_file(output_file, cipher_text)
-        print(f"Writing to file {output_file}")
+        print(MESSAGES["write_to"].format(output_file=output_file))
 
 
 def main():
+    """Program Entry Point."""
     try:
         cipher()
     except Exception as e:

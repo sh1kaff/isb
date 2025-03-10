@@ -35,7 +35,9 @@ const loadState = async () => {
     const keys = Object.keys(object);
     const values = Object.values(object);
 
-    for (let i = 3; i < keys.length; ++i) {
+    let i0 = (object["to-upper"]) ? 3 : 2;
+
+    for (let i = i0; i < keys.length; ++i) {
         console.log(keys[i]);
         document.querySelector(`input[name='${keys[i]}']`).value = values[i];
     }
@@ -45,9 +47,12 @@ const loadState = async () => {
 const saveState = () => {
     console.log("Saving state...");
     
-    const cipherForm = new FormData( document.querySelector('#cipherForm') );
+
+    const form = document.querySelector('#cipherForm');
+    const cipherForm = new FormData(form);
 
     let object = {};
+
     cipherForm.forEach(function(value, key){
         object[key] = value;
     });

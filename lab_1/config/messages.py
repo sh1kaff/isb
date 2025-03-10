@@ -15,18 +15,22 @@
     "invalid_file_path": "Invalid path to file: '{path}'",
     "file_not_json": "The file '{path}' is not a json file",
     "invalid_json": "Json file '{path}' is invalid: {e}",
-
-
+    "invalid_lang_key": "The language key '{key}' is incorrect"
 }
+
 
 PROG_DESC = {
     "cipher": "The program encrypts the required text using substitution, Caesar and Vigenère ciphers.",
     "analysis": "Performs frequency analysis of the text and replaces ciphertext letters with similar real letters by frequency. Outputs the result necessary for further manual processing"
 }
 
-PROG_HELP = {
 
+MESSAGES = {
+    "write_to": "Writing to file {output_file}",
+    "res_plain": "Result plain text:",
+    "res_cipher": "Result cipher text:"
 }
+
 
 SUB_PROG_DESC = {
     "cipher": "Available ciphers (substitution, Caesar, Vigenère)",
@@ -35,12 +39,14 @@ SUB_PROG_DESC = {
     "vig": "Vigenère cipher"
 }
 
+
 SUB_PROG_HELP = {
     "cipher": "Defines the cipher used",
     "sub": "Encrypts the text using a substitution cipher",
     "caesar": "Encrypts the text using a Caesar cipher",
     "vig": "Encrypts the text using a Vigenère cipher"
 }
+
 
 ARG_HELP = {
     "auto": "Using values from the settings.json file",
