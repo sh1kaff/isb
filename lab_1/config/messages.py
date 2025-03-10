@@ -54,7 +54,7 @@ ARG_HELP = {
     "output": "Output file for encrypted text",
     "uppercase": "Bring all input data to UPPER CASE",
     "alpha": "RU, EN or alphabetical string",
-    "alpha_freq": "'ru' or 'en' letters frequency",
+    "alpha_freq": "'ru' or 'en' letters frequency. Defaults to 'ru'",
     "key": "Key string or path to key.json",
     "shift": "A shift in Caesar's cipher (can be neg or pos)"
 }

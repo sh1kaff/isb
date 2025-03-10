@@ -37,7 +37,8 @@ def cipher():
             )
         case "vig":
             alpha = parse_alpha_param(args.alpha)
-            key = parse_key_param(task1_settings.get("key", "") if args.auto else args.key)
+            key = parse_key_param(task1_settings.get("key", "") \
+                                  if args.auto else args.key)
 
             cipher_text = ciphers.vigenere(
                 alpha,

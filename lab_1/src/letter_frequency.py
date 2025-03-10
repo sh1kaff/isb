@@ -19,7 +19,7 @@
             continue
 
         frequency = round(message.count(char) / message_len, 6)
-        result.append(list(char, frequency))
+        result.append([char, frequency])
 
     result.sort(key=lambda _: _[1], reverse=True)
 

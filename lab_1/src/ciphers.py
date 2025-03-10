@@ -13,12 +13,15 @@ def substitution(
         alphabet1 (str): Input plaintext alphabet.
         alphabet2 (str): Output ciphertext alphabet.
         message (str): Input plaintext.
-        to_upper (bool, optional): Flag that if True, causes alphabets and the message to be upper case. Defaults to False.
+        to_upper (bool, optional): Flag that if True, causes alphabets
+            and the message to be upper case. Defaults to False.
 
     Raises:
         ValueError: One of the alphabets is blank.
-        ValueError: There are repeated characters in the alphabet of the input plaintext.
-        ValueError: The ciphertext alphabet is smaller than the plaintext alphabet.
+        ValueError: There are repeated characters
+            in the alphabet of the input plaintext.
+        ValueError: The ciphertext alphabet
+            is smaller than the plaintext alphabet.
 
     Returns:
         str: Output ciphertext.
@@ -66,7 +69,8 @@ def caesar(
         alphabet (str): An alphabet of input and output texts.
         message (str): Message to encrypt.
         shift (int, optional): Shift in the cipher. Defaults to 3.
-        to_upper (bool, optional): Flag that if True, causes alphabets and the message to be upper case. Defaults to False.
+        to_upper (bool, optional): Flag that if True, causes alphabets
+            and the message to be upper case. Defaults to False.
 
     Raises:
         ValueError: The alphabet is empty.
@@ -113,7 +117,8 @@ def vigenere(
         alphabet (str): An alphabet of input and output texts.
         key (str): Key for encryption.
         message (str): Message to encrypt.
-        to_upper (bool, optional): Flag that if True, causes alphabets and the message to be upper case. Defaults to False.
+        to_upper (bool, optional): Flag that if True, causes alphabets
+            and the message to be upper case. Defaults to False.
 
     Raises:
         ValueError: The key is empty.

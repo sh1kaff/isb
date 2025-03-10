@@ -81,7 +81,8 @@ def validate_cipher_arguments(args: Namespace):
         args (Namespace): Namespace of parsed arguments.
 
     Raises:
-        ValueError: The auto key is used in conjunction with input, output or key.
+        ValueError: The auto key is used in conjunction
+            with input, output or key.
         ValueError: The auto or key arguments is missing.
         ValueError: The auto or input arguments is missing.
     """
